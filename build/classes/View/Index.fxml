@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<Pane fx:id="painel" maxHeight="400.0" maxWidth="600.0" minHeight="400.0" minWidth="600.0" prefHeight="400.0" prefWidth="600.0" styleClass="painel" stylesheets="@Index.css" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Control.IndexController">
+   <children>
+      <Pane fx:id="telaCadastro" layoutX="9.0" layoutY="33.0" prefHeight="359.0" prefWidth="581.0">
+         <children>
+            <Label layoutX="21.0" layoutY="92.0" text="Id:" />
+            <DatePicker fx:id="txtNascimento" layoutX="136.0" layoutY="189.0" prefHeight="25.0" prefWidth="250.0" />
+            <TextField fx:id="txtPai" layoutX="136.0" layoutY="223.0" prefHeight="25.0" prefWidth="250.0" />
+            <Button fx:id="btnConfirmarTelaCadastro" layoutX="475.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnConfirmarTelaCadastro1" text="Confirmar &gt;" />
+            <Button fx:id="btnFecharTelaCadastro" layoutX="413.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnFechar" text="Fechar" />
+            <Label layoutX="21.0" layoutY="227.0" text="Nome do Pai:" />
+            <Label layoutX="21.0" layoutY="193.0" text="Data de nascimento:" />
+            <Label layoutX="21.0" layoutY="124.0" text="Nome:" />
+            <Label layoutX="21.0" layoutY="159.0" text="Endereço:" />
+            <TextField fx:id="txtId" disable="true" editable="false" layoutX="136.0" layoutY="88.0" prefHeight="25.0" prefWidth="100.0" />
+            <TextField fx:id="txtNome" layoutX="136.0" layoutY="120.0" prefHeight="25.0" prefWidth="424.0" />
+            <TextField fx:id="txtEndereco" layoutX="136.0" layoutY="155.0" prefHeight="25.0" prefWidth="250.0" />
+            <Label layoutX="21.0" layoutY="264.0" text="Nome da Mãe:" />
+            <TextField fx:id="txtMae" layoutX="136.0" layoutY="260.0" prefHeight="25.0" prefWidth="250.0" />
+            <Separator layoutX="18.0" layoutY="297.0" prefHeight="17.0" prefWidth="538.0" />
+            <Label layoutX="21.0" layoutY="12.0" text="Buscar candidato por Nome:" />
+            <TextField fx:id="txtBuscarNome" layoutX="186.0" layoutY="9.0" prefHeight="25.0" prefWidth="59.0" />
+            <Separator layoutX="18.0" layoutY="61.0" prefHeight="17.0" prefWidth="538.0" />
+            <Button fx:id="BtnBuscarTelaCadastro" layoutX="252.0" layoutY="8.0" mnemonicParsing="false" onAction="#btnBuscar" prefHeight="25.0" prefWidth="52.0" text="OK" />
+            <Label layoutX="32.0" layoutY="39.0" opacity="0.75" text="Caso a busca não resulte no paciente esperado, complete o campo com o nome completo do mesmo.">
+               <font>
+                  <Font name="System Italic" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cbCliente" layoutX="312.0" layoutY="8.0" prefHeight="25.0" prefWidth="250.0" />
+         </children>
+      </Pane>
+      <Pane fx:id="telaGrafico" layoutX="10.0" layoutY="33.0" prefHeight="359.0" prefWidth="581.0" visible="false">
+         <children>
+            <PieChart layoutX="14.0" layoutY="37.0" prefHeight="217.0" prefWidth="108.0" />
+            <PieChart layoutX="252.0" layoutY="20.0" prefHeight="281.0" prefWidth="287.0" />
+            <PieChart layoutX="304.0" layoutY="20.0" prefHeight="251.0" prefWidth="250.0" />
+            <Button fx:id="btnSangue" layoutX="269.0" layoutY="309.0" mnemonicParsing="false" onAction="#btnGraficoSangue" text="PorTipo Sanguíneo" />
+            <Button fx:id="btnSexo" layoutX="108.0" layoutY="309.0" mnemonicParsing="false" onAction="#btnGraficoSexo" text="Por Sexo" />
+            <Button fx:id="btnDoenca" layoutX="178.0" layoutY="309.0" mnemonicParsing="false" onAction="#btnGraficoDoenca" text="Por Doenças" />
+            <Button fx:id="btnVoltarTelaGrafico" layoutX="494.0" layoutY="309.0" mnemonicParsing="false" onAction="#btnFechar" text="&lt; Voltar" />
+         </children>
+      </Pane>
+      <MenuBar fx:id="menuBarra" prefHeight="25.0" prefWidth="600.0">
+        <menus>
+          <Menu fx:id="menuDoar" mnemonicParsing="false" text="Doação">
+            <items>
+              <MenuItem fx:id="itemDoar" mnemonicParsing="false" onAction="#itemDoarAction" text="Doar" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuGrafico" mnemonicParsing="false" text="Gráfico">
+            <items>
+              <MenuItem fx:id="itemGraficoCandidato" mnemonicParsing="false" onAction="#btnGraficoSexo" text="Por Sexo" />
+                  <MenuItem fx:id="itemGraficoTeste" mnemonicParsing="false" onAction="#btnGraficoDoenca" text="Por Doenças" />
+                  <MenuItem fx:id="itemGraficoSangue" mnemonicParsing="false" onAction="#btnGraficoSangue" text="Por Tipo Sanguíneo" />
+            </items>
+          </Menu>
+          <Menu fx:id="menuAjuda" mnemonicParsing="false" text="Ajuda">
+            <items>
+              <MenuItem fx:id="itemAjuda" mnemonicParsing="false" onAction="#itemAjudaAction" text="Sobre" />
+                  <MenuItem fx:id="itemSair" mnemonicParsing="false" onAction="#itemSairAction" text="Sair" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <ImageView fx:id="logo" disable="true" fitHeight="253.0" fitWidth="497.0" layoutX="50.0" layoutY="105.0" pickOnBounds="true" preserveRatio="true" visible="false">
+         <image>
+            <Image url="file:/C:/Users/PICHAU/Documents/NetBeansProjects/JoaoPedro_RenanFrancisco/src/View/logo.jpg" />
+         </image>
+      </ImageView>
+      <Pane fx:id="telaTeste" layoutX="8.0" layoutY="33.0" prefHeight="359.0" prefWidth="581.0" visible="false">
+         <children>
+            <DatePicker layoutX="107.0" layoutY="21.0" prefHeight="25.0" prefWidth="151.0" />
+            <TextField fx:id="txtPressaoMa" layoutX="58.0" layoutY="153.0" onKeyReleased="#triagemClinica" prefHeight="25.0" prefWidth="30.0" promptText="14" />
+            <Button fx:id="btnProximoTelaTeste" layoutX="485.0" layoutY="321.0" mnemonicParsing="false" onAction="#btnProximoTelaTeste1" text="Próximo &gt;" />
+            <Label layoutX="13.0" layoutY="25.0" text="Data da doação:" />
+            <Label layoutX="321.0" layoutY="25.0" text="Teste de anemia:" />
+            <Label layoutX="30.0" layoutY="103.0" text="Triagem Clínica">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Separator layoutX="18.0" layoutY="297.0" prefHeight="17.0" prefWidth="538.0" />
+            <Separator layoutX="18.0" layoutY="61.0" prefHeight="17.0" prefWidth="538.0" />
+            <Label layoutX="207.0" layoutY="103.0" text="Triagem Sorológica">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <Label layoutX="421.0" layoutY="103.0" text="Imunohematologia">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Label>
+            <TextField fx:id="txtAltura" layoutX="58.0" layoutY="186.0" onKeyReleased="#triagemClinica" prefHeight="25.0" prefWidth="71.0" promptText="1.70" />
+            <TextField fx:id="txtPeso" layoutX="58.0" layoutY="220.0" onKeyReleased="#triagemClinica" prefHeight="25.0" prefWidth="71.0" promptText="80.9" />
+            <RadioButton layoutX="411.0" layoutY="188.0" mnemonicParsing="false" text="Positivo">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoRh" />
+               </toggleGroup></RadioButton>
+            <RadioButton layoutX="499.0" layoutY="188.0" mnemonicParsing="false" text="Negativo" toggleGroup="$grupoRh" />
+            <ComboBox fx:id="comboBoxSangue" layoutX="484.0" layoutY="155.0" prefHeight="25.0" prefWidth="85.0" promptText="Selecione..." />
+            <Label layoutX="385.0" layoutY="188.0" text="Rh:" />
+            <Label layoutX="386.0" layoutY="225.0" text="Pesquisa de Anticorpos Irregulares:" />
+            <Label layoutX="385.0" layoutY="157.0" text="Tipo Sanguíneo:" />
+            <Label layoutX="5.0" layoutY="158.0" text="Pressão:" />
+            <Label layoutX="5.0" layoutY="191.0" text="Altura:" />
+            <Label layoutX="8.0" layoutY="226.0" text="Peso:" />
+            <CheckBox layoutX="172.0" layoutY="160.0" mnemonicParsing="false" text="Doença de Chagas" />
+            <CheckBox layoutX="172.0" layoutY="214.0" mnemonicParsing="false" text="Sífilis" />
+            <CheckBox layoutX="172.0" layoutY="187.0" mnemonicParsing="false" text="Hepatite B" />
+            <CheckBox layoutX="273.0" layoutY="187.0" mnemonicParsing="false" text="Hepatite C" />
+            <CheckBox layoutX="273.0" layoutY="214.0" mnemonicParsing="false" text="AIDS" />
+            <CheckBox layoutX="172.0" layoutY="242.0" mnemonicParsing="false" text="HTLV I" />
+            <CheckBox layoutX="273.0" layoutY="241.0" mnemonicParsing="false" text="HTLV II" />
+            <Separator layoutX="141.0" layoutY="91.0" orientation="VERTICAL" prefHeight="200.0" />
+            <Separator layoutX="367.0" layoutY="86.0" orientation="VERTICAL" prefHeight="200.0" />
+            <RadioButton layoutX="411.0" layoutY="246.0" mnemonicParsing="false" text="Positivo">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoPAI" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="499.0" layoutY="246.0" mnemonicParsing="false" selected="true" text="Negativo" toggleGroup="$grupoPAI" />
+            <Label layoutX="18.0" layoutY="324.0" text="Coleta realizada (aproximadamente 450ml de sangue):">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label layoutX="8.0" layoutY="254.0" text="Sexo:" />
+            <RadioButton layoutX="59.0" layoutY="254.0" mnemonicParsing="false" text="H">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoSexo" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="97.0" layoutY="254.0" mnemonicParsing="false" text="M" toggleGroup="$grupoSexo" />
+            <RadioButton layoutX="417.0" layoutY="25.0" mnemonicParsing="false" text="Positivo">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoAnemia" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="487.0" layoutY="25.0" mnemonicParsing="false" selected="true" text="Negativo" toggleGroup="$grupoAnemia" />
+            <RadioButton layoutX="336.0" layoutY="324.0" mnemonicParsing="false" text="Sim">
+               <toggleGroup>
+                  <ToggleGroup fx:id="grupoColeta" />
+               </toggleGroup>
+            </RadioButton>
+            <RadioButton layoutX="385.0" layoutY="324.0" mnemonicParsing="false" selected="true" text="Não" toggleGroup="$grupoColeta" />
+            <TextField fx:id="txtPressaoMe" layoutX="100.0" layoutY="153.0" onKeyReleased="#triagemClinica" prefHeight="25.0" prefWidth="30.0" promptText="9" />
+            <Label layoutX="92.0" layoutY="157.0" text="/" />
+         </children>
+      </Pane>
+      <Pane fx:id="telaHistorico" layoutX="8.0" layoutY="33.0" prefHeight="359.0" prefWidth="581.0" visible="false">
+         <children>
+            <Label contentDisplay="CENTER" layoutX="231.0" layoutY="14.0" prefHeight="42.0" prefWidth="120.0" text="Histórico de Doações" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <TableView fx:id="tableDoacao" layoutX="22.0" layoutY="77.0" prefHeight="217.0" prefWidth="538.0">
+              <columns>
+                <TableColumn prefWidth="75.0" text="Id Doação" />
+                  <TableColumn minWidth="0.0" prefWidth="75.0" text="Id Paciente" />
+                <TableColumn prefWidth="250.0" text="Nome Paciente" />
+                  <TableColumn minWidth="2.0" prefWidth="135.0" text="Data Doação" />
+              </columns>
+            </TableView>
+            <Button fx:id="btnVoltarTelaHistorico" layoutX="512.0" layoutY="312.0" mnemonicParsing="false" onAction="#btnFechar" text="Voltar" />
+         </children>
+      </Pane>
+   </children>
+</Pane>
