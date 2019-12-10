@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="mamis.jnlp">
+  <information>
+    <title>mamis</title>
+    <vendor>Caio</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="lib\mysql-connector-java-5.1.23-bin.jar" size="834126" download="eager" />
+    <jar href="mamis.jar" size="307331" download="eager" />
+  </resources>
+  <jfx:javafx-desc  width="800" height="600" main-class="mamis.Mamis"  name="mamis" />
+  <update check="always"/>
+</jnlp>
