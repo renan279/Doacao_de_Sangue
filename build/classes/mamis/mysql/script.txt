@@ -1,0 +1,11 @@
+CREATE TABLE candidato (id_candidato INT AUTO_INCREMENT PRIMARY KEY,nome VARCHAR(50) NOT NULL,endereco VARCHAR(100) NOT NULL,nascimento DATE NOT NULL,pai VARCHAR(50) NOT NULL,mae VARCHAR(50) NOT NULL);#
+CREATE TABLE doacao (id_doacao INT AUTO_INCREMENT PRIMARY KEY,fk_id_candidato INT NOT NULL,FOREIGN KEY(fk_id_candidato)REFERENCES candidato(id_candidato),dia DATE NOT NULL, sexo INT NOT NULL);#
+INSERT INTO candidato (nome, endereco, nascimento, pai, mae) VALUES ('João Pedro','Laurindo Rabelo, 270','19941009','Renato','Jaque');#
+INSERT INTO candidato (nome, endereco, nascimento, pai, mae) VALUES ('Renan Francisco','Laurindo Rabelo, 270','19910704','Francisco','Maria');#
+INSERT INTO candidato (nome, endereco, nascimento, pai, mae) VALUES ('Maria Madalena','Perto do McDonalds','19900101','Adão','Eva');#
+INSERT INTO candidato (nome, endereco, nascimento, pai, mae) VALUES ('Jesus','Céu','00011225','Deus','Maria');#
+INSERT INTO candidato (nome, endereco, nascimento, pai, mae) VALUES ('Uzumaki Naruto','Konoha','20000812','Minato Namikaze','Kushina Uzumaki');#
+INSERT INTO doacao (fk_id_candidato, dia, sexo) VALUES ('1', '20050812', '0');#
+INSERT INTO doacao (fk_id_candidato, dia, sexo) VALUES ('2', '20050812', '1');#
+INSERT INTO doacao (fk_id_candidato, dia, sexo) VALUES ('1', '20050812', '0');#
+INSERT INTO doacao (fk_id_candidato, dia, sexo) VALUES ('3', '20050812', '0');#
